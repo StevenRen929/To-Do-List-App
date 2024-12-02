@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function FinshList() {
+export default function FinshList(props) {
   return (
     <div>
-      FinshList
+      
     </div>
   )
 }
