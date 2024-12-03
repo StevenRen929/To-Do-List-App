@@ -1,57 +1,37 @@
 import React, { useEffect } from 'react'
 //import mockDate from '../mock-data/mock-data.json'
 import { useState } from 'react';
+import './index.css'
 //import MarkFinish from '../mark-finish';
- function TodoList(props) {
-    
-const [toDoItems, setToDoItem] = useState([]);
-useEffect(() => {
-    const storedEvents = JSON.parse(localStorage.getItem('eventsList'));
-    if (storedEvents) {
-        //if there is  eventList in local stroage,
-        //set toDoiTem
-        setToDoItem(storedEvents);
-    }
-}, []); 
+function TodoList({ unfinishedItems,markComplete}) {
+   unfinishedItems =unfinishedItems|| [];
 
-const markComplete = (id) => {
-    const updatedItems = toDoItems.map((item) =>
-        item.id === id ? { ...item, Status: true , finishDate: new Date().toLocaleDateString()} : item
+
+
+    return (
+
+      <div className='to-do-panel'>
+      <div className='to-do-list'>
+        <h3>To Do List</h3>
+        <ul className="list-group">
+          {unfinishedItems.map((item, index) => (
+            <li key={index} className="list-group-item">
+              <span><b>Event Name:</b>{item.toDo}</span>
+              <br></br>
+              <span><b>Due Date:</b>{item.dueDate}</span> 
+             {/* child component only response to render UI and trigger the logic function */}
+              <button className='btn btn-success' onClick={() => markComplete(item.id)}>Mark Done</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      </div> 
     );
-    setToDoItem(updatedItems);
-    localStorage.setItem('eventsList', JSON.stringify(updatedItems));
-  };
-
-return (
-<div>
-    <h3>To Do List</h3>
-    <ul className='list-group-item'>
-    
-        {
-        toDoItems.length===0?(<li>You have complete all item</li>):(
-            toDoItems
-            .filter((item)=>item.Status === false)
-                 .map((unfinishedItem,index)=>{
-                     return (
-                        <li key={index} className="list-group-item">
-                        <span>{unfinishedItem.toDo}</span>
-                        <span>{unfinishedItem.dueDate}</span> {/* Render 'dueDate' */}
-                        <button onClick={()=>{markComplete(unfinishedItem.id)}}>mark Done</button>
-                        </li>
-                    )
-                }
-            )
-        )
-        }
-    </ul>
-      
-  
-</div>
-)
+  }
 
         
 
-}
+
    
 
 export default TodoList;

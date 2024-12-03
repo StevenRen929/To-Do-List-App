@@ -4,7 +4,7 @@ export default function FinshList(props) {
     const [finishItems,setFinishItems] = useState([]);
     useEffect(()=>{
         const data  =  JSON.parse(localStorage.getItem("eventsList"));
-        const finishList = data.filter(element => element.Status === true);
+        const finishList = data.filter(element => element.Complete === true);
         //console.log(finishList);
         setFinishItems(finishList);
 

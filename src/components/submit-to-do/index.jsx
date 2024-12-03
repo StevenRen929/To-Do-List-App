@@ -4,6 +4,7 @@ import ajvErrors from 'ajv-errors'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import ajvFormats from 'ajv-formats' 
+import './index.css'
 
 const schema = {
   type: "object",
@@ -11,7 +12,7 @@ const schema = {
     toDo: {
       type: "string",
       minLength: 1,
-      maxLength: 20
+      maxLength: 50
     },
     createTime: { 
       type: "string",
@@ -21,7 +22,7 @@ const schema = {
       type: "string",
       format: "date" 
     },
-    Status: {
+    Complete: {
       type: "boolean"
     }
   },
@@ -43,12 +44,12 @@ const validate = ajv.compile(schema);
 //console.log("initial validate error",validate.errors);
 
 
-export default function  SubmitToDo() {
+export default function  SubmitToDo({addToDoItem}) {
   const [formData, setFormData] = useState({
     toDo: '',
     dueDate: '',
     createTime: new Date().toISOString(), // Set current time
-    Status: false, // Default to false
+    Complete: false, // Default to false
   });
 
   const [errors, setErrors] = useState([]);
@@ -92,11 +93,7 @@ export default function  SubmitToDo() {
       ...formData
     };
 
-    const eventsList = JSON.parse(localStorage.getItem('eventsList')) || [];
-    eventsList.push(newEvent);
-
-    //update eventsList in localstroage
-    localStorage.setItem('eventsList', JSON.stringify(eventsList));
+   addToDoItem(newEvent);
 
     // 
     //clear form after submit
@@ -104,18 +101,20 @@ export default function  SubmitToDo() {
       toDo: '',
       dueDate: '',
       createTime: new Date().toISOString(), // Reset to the current date/time
-      Status: false, // Default status
+      Complete: false, // Default Complete
     });
   };
 
   return (
-    <div>
+    <div className='form-container'>
       <h3>Create New Event</h3>
+      <div>
       <form noValidate onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="to-do-item">Event will be completed</label>
           <textarea
-            className="form-control"
+            className="form-control
+             form-text-area"
             id="to-do-item"
             name="toDo"
             rows="3"
@@ -139,9 +138,9 @@ export default function  SubmitToDo() {
            {errors.dueDate && <span className="text-danger">{errors.dueDate}</span>}
         </div>
 
-        <button className="btn btn-primary">Create Event</button>
+        <button className="btn btn-primary ">Create Event</button>
       </form>
-
+      </div>
     </div>
   );
 
