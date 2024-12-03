@@ -22,7 +22,17 @@ function App() {
                <SubmitToDo></SubmitToDo>
               </div>
               
-              }></Route>
+              }>
+
+              </Route>
+              <Route path= '/finsh-list' element = {
+                  <div>
+              <FinshList></FinshList>
+              </div>
+              
+              }>
+                
+              </Route>
         
             
         </Routes>
