@@ -16,7 +16,7 @@ useEffect(() => {
 
 const markComplete = (id) => {
     const updatedItems = toDoItems.map((item) =>
-        item.id === id ? { ...item, Status: true } : item
+        item.id === id ? { ...item, Status: true , finishDate: new Date().toLocaleDateString()} : item
     );
     setToDoItem(updatedItems);
     localStorage.setItem('eventsList', JSON.stringify(updatedItems));
