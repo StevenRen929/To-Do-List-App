@@ -7,6 +7,12 @@
   border-style: solid;
   border-radius: 20px;
   min-width: 30vw;
-  min-height: 60vh;
+  /* height: 60vh; */
+ height: 80vh;
   background-color: beige;
+  
+}
+.list-overflow-control{
+  max-height: 80%;
+  overflow-y: scroll;
 }

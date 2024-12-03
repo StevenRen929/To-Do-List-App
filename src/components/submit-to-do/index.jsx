@@ -4,7 +4,7 @@ import ajvErrors from 'ajv-errors'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import ajvFormats from 'ajv-formats' 
-import './index.css'
+import '../submit-to-do/index.css'
 
 const schema = {
   type: "object",
@@ -48,6 +48,7 @@ export default function  SubmitToDo({addToDoItem}) {
   const [formData, setFormData] = useState({
     toDo: '',
     dueDate: '',
+    //createTime: new Date().toLocaleDateString('en-AU'),
     createTime: new Date().toISOString(), // Set current time
     Complete: false, // Default to false
   });
@@ -100,6 +101,7 @@ export default function  SubmitToDo({addToDoItem}) {
     setFormData({
       toDo: '',
       dueDate: '',
+      //createTime: new Date().toLocaleDateString('en-Au'),
       createTime: new Date().toISOString(), // Reset to the current date/time
       Complete: false, // Default Complete
     });
@@ -126,7 +128,7 @@ export default function  SubmitToDo({addToDoItem}) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="due-date">Estimate Due Date</label>
+          <label htmlFor="due-date">Due Date</label>
           <input
             type="date"
             className="form-control"

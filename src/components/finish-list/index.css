@@ -1,0 +1,12 @@
+.finsh-list-container{
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.revert-btn{
+    background-color: red;
+    text-align: center;
+    color :white;
+    border-radius: 20px;
+
+}
