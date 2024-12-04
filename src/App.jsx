@@ -42,6 +42,11 @@ function App() {
     localStorage.setItem('eventsList', JSON.stringify(updatedItems));
 
   }
+  const deleteEvent = (id)=>{
+    const updateList   = toDoItems.filter((item)=>item.id!==id);
+    setToDoItems(updateList);
+    localStorage.setItem('eventsList', JSON.stringify(updateList));
+  }
 
 
 
@@ -54,7 +59,7 @@ function App() {
             <Route path= '/' element = {
                   <div className='Home-Page-Container'>
               <div className='to-do-block'>
-              <TodoList unfinishedItems={unfinishedItems} markComplete={markComplete}></TodoList>
+              <TodoList unfinishedItems={unfinishedItems} markComplete={markComplete} ></TodoList>
               </div>
               <div className='submit-to-do-block'>
                <SubmitToDo addToDoItem={addToDoItem} ></SubmitToDo>
@@ -66,7 +71,7 @@ function App() {
               </Route>
               <Route path= '/finsh-list' element = {
                   <div>
-              <FinshList finishedItems={finishedItems} revertComplete= {revertComplete}></FinshList>
+              <FinshList finishedItems={finishedItems} revertComplete= {revertComplete} deleteEvent={deleteEvent}></FinshList>
               </div>
               
               }>

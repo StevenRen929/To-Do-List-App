@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 //import mockDate from '../mock-data/mock-data.json'
 import { useState } from 'react';
 import './index.css'
+import Priority from './priority';
 //import MarkFinish from '../mark-finish';
+import AddSubtask from './sub-tasks/subtask';
 function TodoList({ unfinishedItems,markComplete}) {
    unfinishedItems =unfinishedItems|| [];
 
@@ -20,8 +22,13 @@ function TodoList({ unfinishedItems,markComplete}) {
           (
             <li key={index} className="list-group-item ">
               <span><b>Event Name:</b>{item.toDo}</span>
-              <br></br>
+              <br/>
               <span><b>Due Date:</b>{item.dueDate}</span> 
+              <br/>
+              <Priority priorityLevel ={item.Priority} >
+              </Priority>
+              <br/>
+              
              {/* child component only response to render UI and trigger the logic function */}
               <button className='btn btn-success' onClick={() => markComplete(item.id)}>Mark Done</button>
             </li>
