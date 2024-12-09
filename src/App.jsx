@@ -5,7 +5,8 @@ import Navigation from './components/nav-bar'
 import SubmitToDo from './components/submit-to-do'
 import FinshList from './components/finish-list'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
-
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import ItemDetail from './components/to-do-list/item-detail'
 
 function App() {
   const[toDoItems,setToDoItems] = useState([]);
@@ -65,10 +66,9 @@ function App() {
                <SubmitToDo addToDoItem={addToDoItem} ></SubmitToDo>
                </div>
               </div>
-              
               }>
-
               </Route>
+              <Route  path= '/todo-detail/:id' element={<ItemDetail></ItemDetail>}></Route>
               <Route path= '/finsh-list' element = {
                   <div>
               <FinshList finishedItems={finishedItems} revertComplete= {revertComplete} deleteEvent={deleteEvent}></FinshList>

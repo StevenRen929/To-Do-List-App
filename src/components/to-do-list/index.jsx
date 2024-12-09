@@ -4,11 +4,16 @@ import { useState } from 'react';
 import './index.css'
 import Priority from './priority';
 //import MarkFinish from '../mark-finish';
-import AddSubtask from './sub-tasks/subtask';
+import PageviewOutlinedIcon from '@mui/icons-material/PageviewOutlined';
+import { useNavigate } from 'react-router-dom';
+import formatDateToIso from '../format-method/formatDateToIso';
+
 function TodoList({ unfinishedItems,markComplete}) {
    unfinishedItems =unfinishedItems|| [];
 
-
+   //don't open anything until uuid of event was set to state
+   const [SubTaskWindowsToBeOpen,setSubTaskWindowsToBeOpen] = useState(null);
+  const navigate = useNavigate();
 
     return (
 
@@ -28,8 +33,23 @@ function TodoList({ unfinishedItems,markComplete}) {
               <Priority priorityLevel ={item.Priority} >
               </Priority>
               <br/>
-              
-             {/* child component only response to render UI and trigger the logic function */}
+              <div className='subtask'>
+              <button className='view-detail-btn'  
+              aria-label="click add subtask"
+              onClick={()=>{
+                navigate(`/todo-detail/${item.id}`);  
+              }}
+              >
+                <PageviewOutlinedIcon />
+                view detail
+              </button>
+              </div>
+              {/* <div className='sub-task-section'>
+
+              {
+             SubTaskWindowsToBeOpen&&(item.id === SubTaskWindowsToBeOpen)?(<AddSubtaskPanel/>):(<span></span>)
+            }
+            </div> */}
               <button className='btn btn-success' onClick={() => markComplete(item.id)}>Mark Done</button>
             </li>
           )) 
@@ -39,8 +59,11 @@ function TodoList({ unfinishedItems,markComplete}) {
         </ul>
         </div>
       </div>
+  
       </div> 
     );
+
+
   }
 
         
