@@ -8,11 +8,19 @@
   border-radius: 20px;
   min-width: 30vw;
   /* height: 60vh; */
- height: 80vh;
-  background-color: beige;
+  height: 80vh;
+  /* background-color: beige; */
+  background: rgba(76, 175, 80, 0.3)
   
 }
-.list-overflow-control{
+.list-overflow-control {
   max-height: 80%;
   overflow-y: scroll;
+}
+.to-do-list {
+  min-width: 80%;
+}
+
+.view-detail-btn {
+  background-color: none;
 }

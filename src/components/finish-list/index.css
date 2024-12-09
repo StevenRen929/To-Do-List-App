@@ -4,9 +4,16 @@
 }
 
 .revert-btn{
-    background-color: red;
+    background-color: #F68232;
     text-align: center;
     color :white;
-    border-radius: 20px;
-
+    border-radius: 10px;
+    font-weight: bold;
+}
+.delete-btn{
+    background-color: rgb(245, 66, 66);
+    text-align: center;
+    color :white;
+    border-radius: 10px;
+    font-weight: bold;
 }
