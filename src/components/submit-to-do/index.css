@@ -1,12 +1,18 @@
 .form-container{
+    position: relative;
     border-color: blue;
     border-style: solid;
     border-radius: 20px;
     min-width: 30vw;
     height: 80vh;
-    background: rgba(20, 20, 0, 0.3);
+    background: rgba(9, 232, 102, 0.1);
    
    
+}
+.form-container:hover{
+    
+    background: rgba(9, 232, 102, 0.2);
+    
 }
 form{
     max-width: 80%;

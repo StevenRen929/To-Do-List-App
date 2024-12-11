@@ -204,9 +204,9 @@ onChange={handleInputChange}：在用户修改输入框值时触发，调用 han
                     errors={errors}
                     onChange={handleInputChange}
                   />
-                  <button type="button" onClick={handelSubpanel}>
+                  <button type="button"  className = "btn btn-secondary mb-2"onClick={handelSubpanel}>
                     Close
-                  </button>
+                  </button> 
                 </div>
               </div>
             )}

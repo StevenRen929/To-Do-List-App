@@ -3,7 +3,7 @@ import { data, useParams } from "react-router-dom";
 import formatDateToIso from "../format-method/formatDateToIso";
 import GetTimeDiff from "./get-time-diff";
 import Warning from "./warning";
-import './index.css'
+import "./index.css";
 
 export default function ItemDetail(props) {
   const { id } = useParams();
@@ -22,11 +22,10 @@ export default function ItemDetail(props) {
   }, [id]);
 
   if (!postDetail) {
-    
     return <div>404 Not found</div>;
   }
 
- console.log(postDetail.Subtasks.lenght);
+  console.log(postDetail.Subtasks.lenght);
 
   return (
     <div className="task-detail-container">
@@ -82,15 +81,21 @@ export default function ItemDetail(props) {
           {haveTimeDiff && (
             <tr>
               <th scope="row">Time Remain:</th>
-              <td><GetTimeDiff dueDate = {new Date(postDetail.dueDate)} setTimeRemain ={setTimeRemain}></GetTimeDiff></td>
+              <td>
+                <GetTimeDiff
+                  dueDate={new Date(postDetail.dueDate)}
+                  setTimeRemain={setTimeRemain}
+                ></GetTimeDiff>
+              </td>
             </tr>
           )}
-
-
         </tbody>
       </table>
       <div>
-        <Warning timeRemain = {timeRemain} Complete={postDetail.Complete}></Warning>
+        <Warning
+          timeRemain={timeRemain}
+          Complete={postDetail.Complete}
+        ></Warning>
       </div>
     </div>
   );

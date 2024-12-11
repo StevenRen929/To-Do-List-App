@@ -8,7 +8,7 @@ export default function CurrentSubtasks({subtaskList,deleteSubtask}) {
         {
             subtaskList.map((item,index)=>{
                return(<li key={index} className='list-group-item d-flex justify-content-between subtask-title-style'>
-                    <p>{item.subTitle}</p>
+                    <strong>{item.subTitle}</strong>
                      <button className='delete-form-sub-task-btn' type='button' onClick={()=>{deleteSubtask(index)}}>delete</button>
                 </li>)
             })

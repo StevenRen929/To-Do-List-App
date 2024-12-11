@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 export default function AddSubtaskPanel({addSubTask,setSubpanelOpen,errors}) {
       console.log(errors);
   
-    //console.log(setSubpanelOpen);
     const[subFormData,setSubFormData] = useState(
       {
         subTitle:'',
@@ -45,11 +44,16 @@ export default function AddSubtaskPanel({addSubTask,setSubpanelOpen,errors}) {
 
 
   return (
+   
 
-    <div>
-      <label htmlFor="sub-task-item ">Sub-task-title</label>
+
+
+
+    <div className='form-group'>
+      <label htmlFor="sub-task-item " >Sub-task-title:</label>
+      <br />
       <input type="text" 
-      id= "sub-task-item"
+      id= "sub-task-item" className='form-control'
       onChange={handleSubTaskInputChange}
       name = 'subTitle'
       value={subFormData.subTitle} />
@@ -58,12 +62,12 @@ export default function AddSubtaskPanel({addSubTask,setSubpanelOpen,errors}) {
       <br/>
       <label htmlFor="description">Description:</label>
     <textarea name="description"
-     id="description"
+     id="description" className='form-control'
      onChange={handleSubTaskInputChange}
      value={subFormData.description}>
      </textarea>
      {/* type = button prevent from submit main form */}
-     <button type="button" onClick={submitSubtask}>Add subtask</button>
+     <button type="button" className='btn btn-primary mb-2' onClick={submitSubtask}>Add subtask</button>
     </div>
 
   )
