@@ -1,5 +1,16 @@
 .delete-form-sub-task-btn{
  cursor: pointer;
+ border-radius: 10px;
+ background-color: none;
+ 
+
    
 
+}
+.form-subtask-windows{
+    max-height: 40%;
+  overflow-y: scroll;
+}
+.subtask-title-style{
+    border-color: blueviolet;
 }
