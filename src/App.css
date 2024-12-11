@@ -8,7 +8,9 @@
   justify-content: space-evenly;
   align-content: center;
   flex-wrap: wrap;
-  background-image: url(https://img.freepik.com/free-vector/copy-space-bokeh-spring-lights-background_52683-55649.jpg?t=st=1733757584~exp=1733761184~hmac=e01486ce00fb9fe47b98b6b02c4d7d0f44abb4f322d051a2c14a88f55c71a605&w=1060);
+  /* //background-image: url(https://pilbox.themuse.com/image.jpg?filter=antialias&h=343&opt=1&pos=top-left&prog=1&q=keep&url=https%3A%2F%2Fcms-assets.themuse.com%2Fmedia%2Flead%2F22280.jpg&w=700);
+  //background :cover; */
+  background-color: #f0f0f0
 }
 
 

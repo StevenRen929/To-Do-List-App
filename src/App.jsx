@@ -6,7 +6,7 @@ import SubmitToDo from './components/submit-to-do'
 import FinshList from './components/finish-list'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import ItemDetail from './components/to-do-list/item-detail'
+import ItemDetail from './components/item-detail'
 
 function App() {
   const[toDoItems,setToDoItems] = useState([]);
@@ -32,7 +32,7 @@ function App() {
   //updateLocal Storage Item after mark complete
   const markComplete = (id) => {
     const updatedItems = toDoItems.map((item) =>
-        item.id === id ? { ...item, Complete: true , finishDate: new Date().toLocaleDateString()} : item);
+        item.id === id ? { ...item, Complete: true , finishDate: new Date().toLocaleString()} : item);
     setToDoItems(updatedItems);
     localStorage.setItem('eventsList', JSON.stringify(updatedItems));
   };

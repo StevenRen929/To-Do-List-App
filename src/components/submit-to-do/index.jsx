@@ -108,7 +108,7 @@ export default function SubmitToDo({ addToDoItem }) {
       toDo: "",
       dueDate: "",
       //createTime: new Date().toLocaleDateString('en-Au'),
-      createTime: new Date().toLocaleDateString(), // Reset to the current date/time
+      createTime: new Date().toLocaleString(), // Reset to the current date/time
       Complete: false, // Default Complete
       Priority: "High", //default priority
       Subtasks: [],
