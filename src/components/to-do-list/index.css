@@ -9,10 +9,19 @@
   min-width: 30vw;
   /* height: 60vh; */
   height: 80vh;
-  /* background-color: beige; */
-  background: rgba(76, 175, 80, 0.3)
+  background: rgba(76, 175, 80, 0.1); /* Subtle green background with transparency */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for depth */
+  padding: 20px; /* Adds some padding inside the panel */
+  margin: 10px; /* Adds space between multiple panels */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
   
 }
+.to-do-panel:hover {
+  background: rgba(76, 175, 80, 0.2); /* Slightly darker green when hovered */
+  transform: translateY(-5px); /* Subtle lift effect on hover */
+}
+
+
 .list-overflow-control {
   max-height: 80%;
   overflow-y: scroll;
