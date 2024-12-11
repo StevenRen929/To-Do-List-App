@@ -25,6 +25,7 @@
 .list-overflow-control {
   max-height: 80%;
   overflow-y: scroll;
+
 }
 .to-do-list {
   min-width: 80%;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import './index.css'
 export default function AddSubtaskPanel({addSubTask,setSubpanelOpen,errors}) {
       console.log(errors);
   

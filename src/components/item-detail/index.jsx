@@ -22,10 +22,11 @@ export default function ItemDetail(props) {
   }, [id]);
 
   if (!postDetail) {
+    
     return <div>404 Not found</div>;
   }
 
-
+ console.log(postDetail.Subtasks.lenght);
 
   return (
     <div className="task-detail-container">
@@ -49,7 +50,7 @@ export default function ItemDetail(props) {
             <th scope="row">Subtasks</th>
             <td>
               <ul className="list-group">
-                {postDetail.Subtasks.lenght > 0 ? (
+                {postDetail.Subtasks.length > 0 ? (
                   postDetail.Subtasks.map((subtask, index) => (
                     <li className="list-group-item" key={index}>
                       <strong>

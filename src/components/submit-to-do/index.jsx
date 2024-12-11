@@ -70,8 +70,16 @@ export default function SubmitToDo({ addToDoItem }) {
     }));
   };
 
-  const deleteSubtask = () => {
-    console.log("delete this subtask!");
+
+//需要根据之前值的都要setform一个callback
+  const deleteSubtask = (indexToDelete) => {
+    //console.log(index)
+    const updatedSubtasks = formData.Subtasks.filter((_, index) => index !== indexToDelete);
+    setFormData((prevState)=>({
+      ...prevState,
+      Subtasks: updatedSubtasks,
+    }))
+
   };
 
   // Handle form submission
